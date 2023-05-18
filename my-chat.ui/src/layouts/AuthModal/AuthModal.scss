@@ -1,0 +1,28 @@
+.auth-modal {
+    background: rgba(135, 183, 255, 0.69);
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__window {
+        width: 504px;
+    }
+
+    &__content {
+
+        background: #DFECFF;
+        border-radius: 40px 40px 0px 0px;
+        height: 640px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        justify-content: space-evenly;
+
+        padding: 0 42px;
+    }
+}

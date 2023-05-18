@@ -1,0 +1,20 @@
+.switch-buttons__component-button {
+    
+
+    button {
+        font-weight: 400;
+        font-size: 24px;
+        width: 100%;
+        color: #DFECFF;
+        background: inherit;
+        border: none;
+        padding: 24px 0;
+    }
+
+    &.active{
+        button{
+            background: #DFECFF;
+            color: #000000;
+        }
+    }
+}
