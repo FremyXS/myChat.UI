@@ -11,3 +11,20 @@ export type TokenType = {
 export type User = {
     name: string
 }
+
+export type ChatRoomType = {
+    id: number;
+    title : string
+}
+
+export type MessageType = {
+    message: string;
+    userId: number;
+    name: string;
+}
+
+export type CreateMessageType = {
+    message: string;
+    userId: number;
+    chatRoomId: number;
+}

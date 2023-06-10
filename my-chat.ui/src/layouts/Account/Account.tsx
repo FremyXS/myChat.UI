@@ -5,17 +5,19 @@ import './Account.scss';
 
 function Account(){
     const [account, setAccount] = useState({
-        id: 0
+        id: 0,
+        email: '',
     });
 
 
     useEffect(()=>{
         loadAccountAsync();
-    }, [account]);
+    }, []);
 
     return(
         <div className="account">
             {account.id}
+            {account.email}
         </div>
     );
 

@@ -12,5 +12,10 @@
         width: 100%;
 
         padding: 23px 0;
+
+        &:hover{
+            cursor: pointer;
+            background: #a5c9ff;
+        }
     }
 }

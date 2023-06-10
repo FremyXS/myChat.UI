@@ -12,7 +12,7 @@ const authSwitchTypes = {
     register: 1
 }
 
-function AuthModal({onLogin}:{onLogin: (token:TokenType)=>void}) {
+function AuthModal() {
     const [authSwitch, setAuthSwitch] = useState<number>(authSwitchTypes.login);
 
     const [loginAccountForm, setLoginAccountForm] = useState<AccountForm>({
@@ -101,7 +101,6 @@ function AuthModal({onLogin}:{onLogin: (token:TokenType)=>void}) {
         
        const{data} = await loginAsync(loginAccountForm);
 
-       onLogin(data);
        console.log(data)
     }
 

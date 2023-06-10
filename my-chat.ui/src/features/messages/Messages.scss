@@ -1,0 +1,23 @@
+.messages{
+    overflow-y: hidden;
+    &-item{
+        border: 1px solid black;
+        border-left: 0;
+        border-right: 0;
+        height: 50px;
+
+        font-size: 24px;
+
+        display: flex;
+        align-items: center;
+
+        &:not(:last-child){
+            border-bottom: 0px;
+        }
+
+        &:hover{
+            cursor: pointer;
+            background: #DFECFF;
+        }
+    }
+}

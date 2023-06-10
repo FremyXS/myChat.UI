@@ -1,21 +1,21 @@
 import React from 'react';
 import logo from './logo.svg';
-import { createAuthProvider } from './halpers/createAuthProvider ';
 import Chat from './features/chat/Chat';
 
 import './App.css';
+import checkAuth from './commons/checkAuth';
+
 
 function App() {
-  const authProvider = createAuthProvider();
-  const [logged] = authProvider.useAuth();
+  const isAutth = checkAuth();
   return (
     <div>
-      {!logged &&
+      {!isAutth &&
         <div>
           Plz login or register
         </div>
       }
-      {logged &&
+      {isAutth &&
         <Chat/>
       }
     </div>
