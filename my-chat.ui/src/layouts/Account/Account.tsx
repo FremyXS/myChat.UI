@@ -2,27 +2,38 @@ import React, { useEffect, useState } from "react";
 import { profileAsync } from "../../api/interfaces/auth";
 
 import './Account.scss';
+import Button from "../../components/Button/Button";
 
-function Account(){
+function Account() {
     const [account, setAccount] = useState({
         id: 0,
         email: '',
+        userName: ''
     });
 
 
-    useEffect(()=>{
+    useEffect(() => {
         loadAccountAsync();
     }, []);
 
-    return(
+    return (
         <div className="account">
-            {account.id}
-            {account.email}
+            <div className="account-info">
+                <div>Email: {account.email}</div>
+                <div>
+                    Name: {account.userName}
+                </div>
+            </div>
+            <div className="account-logout">
+                <Button onClick={() =>{
+                    localStorage.removeItem('user');
+                }} type='button'>Выход</Button>
+            </div>
         </div>
     );
 
     async function loadAccountAsync() {
-        const {data} = await profileAsync();
+        const { data } = await profileAsync();
         setAccount(data);
     }
 }

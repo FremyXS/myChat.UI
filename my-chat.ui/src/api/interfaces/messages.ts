@@ -1,4 +1,4 @@
-import { ChatRoomType, CreateMessageType, MessageType } from '../../types';
+import { ChatRoomType, CreateChatRoomType, CreateMessageType, MessageType } from '../../types';
 import { api } from '../api';
  
 export const getAllChatRooms = async () => {
@@ -11,4 +11,8 @@ export const getChatMessages = async (id: number) => {
 
 export const postMessage =async (message: CreateMessageType) => {
     return await api().post(`message`, message);    
+}
+
+export const createChat = async (chatroom: CreateChatRoomType) => {
+    return await api().post(`chat`, chatroom);
 }

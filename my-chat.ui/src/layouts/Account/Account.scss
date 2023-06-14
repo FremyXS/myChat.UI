@@ -1,5 +1,9 @@
-.account{
+.account {
     background: rgba(135, 183, 255, 0.69);
 
     height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

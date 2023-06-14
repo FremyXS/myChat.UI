@@ -10,27 +10,31 @@ import Connector from '../../../../commons/signalr-connection'
 import './ChatRoom.scss';
 
 function ChatRoom({ idChat }: { idChat: number }) {
-    const [messages, setMessages] = useState<MessageType[]>([]);
     const [newSubMessage, setNewMessage] = useState<string>("");
-
     const [smessages, setSMessages] = useState<MessageType[]>([]);
     const { newMessage, events } = Connector();
-
-    useEffect(() => {
-        loadMessagesAsync();
-    }, [])
+    const [account, setAccount] = useState({
+        id: 0,
+        email: '',
+        userName: '',
+        userId: 0
+    })
 
     useEffect(() => {
         events((smessages) => setSMessages(smessages), idChat);
     });
 
+    useEffect(() => {
+        loadDataAccountAsync();
+    }, []);
+
     async function submitMessage() {
-        const { data } = await profileAsync();
+        
 
         const mes: CreateMessageType = {
             message: newSubMessage,
             chatRoomId: idChat,
-            userId: data.id,
+            userId: account.userId,
         };
 
         newMessage(mes);
@@ -42,7 +46,7 @@ function ChatRoom({ idChat }: { idChat: number }) {
         <div className="chat-room">
             <div className="chat-room-messages">
                 {smessages.map((el, index) =>
-                    <div key={index} className="chat-room-message">
+                    <div key={index} className={`chat-room-message${account.userName === el.name? ' user': ''}`}>
                         <div className="chat-room-message__user">
                             {el.name}
                         </div>
@@ -62,10 +66,10 @@ function ChatRoom({ idChat }: { idChat: number }) {
         </div>
     );
 
-    async function loadMessagesAsync() {
-        const { data } = await getChatMessages(idChat);
-        setMessages(data);
-    }
+    async function loadDataAccountAsync() {
+        const { data } = await profileAsync();
+        setAccount(data);
+    } 
 }
 
 export default ChatRoom;

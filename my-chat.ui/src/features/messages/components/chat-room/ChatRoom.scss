@@ -20,6 +20,10 @@
 
         max-width: 60%;
 
+        &.user{
+            background: #f6b0ff;
+        }
+
         &:not(:last-child){
             margin-bottom: 15px;
         }

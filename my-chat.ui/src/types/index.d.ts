@@ -5,16 +5,22 @@ export type AccountForm = {
 }
 
 export type TokenType = {
-    token: string, 
+    token: string,
 }
 
 export type User = {
+    id: number,
     name: string
 }
 
 export type ChatRoomType = {
     id: number;
-    title : string
+    title: string
+}
+
+export type CreateChatRoomType = {
+    title: string,
+    usersId: number[]
 }
 
 export type MessageType = {

@@ -10,7 +10,7 @@ export const loginAsync = async (account: AccountForm) => {
 
             console.log(response.data);
             return response.data;
-        });;
+        });
 }
 
 export const registerAsync = async (account: AccountForm) => {
